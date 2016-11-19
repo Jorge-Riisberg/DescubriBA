@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Categoria <strong>{{ categoria.nombre }}</strong></h1><br>
+    <div>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    
+                </tr>
+                <tr>
+                    <td>{{ categoria.id }}</td>
+                    <td>{{ categoria.nombre }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{{ path('categoria_index') }}" class="btn btn-primary" role="button">Volver</a>
+        <a href="{{ path('categoria_edit', { 'id': categoria.id }) }}" class="btn btn-warning" role="button">Modificar</a>
+        {{ form_start(delete_form) }}
+            <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button">
+        {{ form_end(delete_form) }}
+    </div>
+{% endblock %}

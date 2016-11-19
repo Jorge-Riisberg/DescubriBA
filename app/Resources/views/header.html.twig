@@ -1,0 +1,12 @@
+<header>
+	<img id="logo" class="img-responsive" src="{{asset('img/logo.png')}}">
+	<img id="banner" class="img-responsive" src="{{asset('img/banner.png')}}"> 
+</header>
+
+{% block nav %}
+  {% if app.user %} 
+    {{ include('nav_admin.html.twig') }} 
+  {% else %}
+    {{ include('nav.html.twig') }}
+  {% endif %}  
+{% endblock %}

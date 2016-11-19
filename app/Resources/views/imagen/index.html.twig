@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imagens list</h1>
+
+    <table id="tabla_buscar">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imagen in imagens %}
+            <tr>
+                <td><a href="{{ path('imagen_show', { 'id': imagen.id }) }}">{{ imagen.nombre }}</a></td>
+                <td>{{ imagen.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('imagen_show', { 'id': imagen.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('imagen_edit', { 'id': imagen.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('imagen_new') }}">Create a new imagen</a>
+        </li>
+    </ul>
+{% endblock %}

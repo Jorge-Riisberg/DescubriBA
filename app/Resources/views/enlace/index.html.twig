@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Enlaces list</h1>
+
+    <table id="tabla_buscar">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Id</th>
+                <th>Enlace</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for enlace in enlaces %}
+            <tr>
+                <td><a href="{{ path('enlace_show', { 'id': enlace.id }) }}">{{ enlace.nombre }}</a></td>
+                <td>{{ enlace.id }}</td>
+                <td>{{ enlace.enlace }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('enlace_show', { 'id': enlace.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('enlace_edit', { 'id': enlace.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('enlace_new') }}">Create a new enlace</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,47 @@
+<div id="map">Map</div>
+
+<script>
+	var map;
+	var marker;
+	var latitud;
+	var longitud;
+	var nombre;
+	var position;
+
+	function Map() {
+		var mapCanvas = document.getElementById("map");
+		var mapOptions = { center: new google.maps.LatLng(-37.25, -60.2), zoom: 7, mapTypeId: google.maps.MapTypeId.ROADMAP };
+		map = new google.maps.Map(mapCanvas, mapOptions);	
+
+		// This event listener calls setMarker() when the map is clicked.
+		google.maps.event.addListener(map, 'click', function(event) {
+			setMarker(event.latLng, map);
+			setLatLng();
+		});
+
+		latitud = document.getElementById("mainbundle_puntodeinteres_latitud").value;
+		longitud = document.getElementById("mainbundle_puntodeinteres_longitud").value;
+		nombre = document.getElementById("mainbundle_puntodeinteres_nombre").value;
+		position = new google.maps.LatLng( latitud, longitud);
+
+		marker = new google.maps.Marker({ draggable: true, title: nombre });
+		marker.addListener('dragend', setLatLng);
+
+		setMarker(position);
+	}
+
+
+	// Set a marker on the map
+	function setMarker(location) {
+		marker.setMap(null);
+		marker.setPosition(location);
+		marker.setMap(map);
+	}
+
+
+	function setLatLng() {
+		latitud = document.getElementById("mainbundle_puntodeinteres_latitud").value = marker.position.lat().toFixed(6);
+		longitud = document.getElementById("mainbundle_puntodeinteres_longitud").value = marker.position.lng().toFixed(6);
+	}
+
+</script>

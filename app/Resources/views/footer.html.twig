@@ -1,0 +1,22 @@
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  
+<!-- Bootstrap core JavaScript --> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Google Maps API JavaScript -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq0hCECW3WmCkEYRYZdVEoWHUaZf2nfm0&callback=Map"></script>
+<!-- Table JavaScript -->
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+{% block javascripts %}{% endblock %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#tabla_buscar').DataTable( {
+            "pagingType": "full_numbers",
+            "language": { "url": "//cdn.datatables.net/plug-ins/1.10.10/i18n/Spanish.json" },
+        } );
+    } );
+</script>
+
+<footer>
+	Creado por JD Desarrollos - Todos los derechos reservados - Taller de Producción de Software 2016.
+</footer>

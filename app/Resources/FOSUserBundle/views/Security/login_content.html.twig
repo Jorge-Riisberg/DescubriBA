@@ -1,0 +1,39 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+
+
+<form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
+  {% if csrf_token %}
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+  {% endif %}
+  <fieldset>
+    <legend>Ingresar al sistema</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Usuario</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="username" name="_username" placeholder="Ingrese nombre de Usuario" type="text" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Contraseña</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="password" name="_password" placeholder="Ingrese contraseña" type="password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" id="remember_me" name="_remember_me"> Recordar
+          </label>
+          <a href="{{ path("fos_user_resetting_request") }}" class="btn btn-link">¿Has olvidado tu contraseña?</a>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

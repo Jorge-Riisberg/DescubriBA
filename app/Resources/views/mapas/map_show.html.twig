@@ -1,0 +1,25 @@
+<div id="map">Map</div>
+
+<script>
+    var map;  
+
+	function Map() {
+	  var mapCanvas = document.getElementById("map");
+	  var mapOptions = {
+	    center: new google.maps.LatLng(-37.25, -60.2), zoom: 7, mapTypeId: google.maps.MapTypeId.ROADMAP
+	  };
+	  map = new google.maps.Map(mapCanvas, mapOptions);	
+      setMarker();
+    }
+
+
+	function setMarker() {  
+		var nombre = document.getElementById("mainbundle_puntodeinteres_nombre").innerHTML;
+		var latitud = document.getElementById("mainbundle_puntodeinteres_latitud").innerHTML;
+		var longitud = document.getElementById("mainbundle_puntodeinteres_longitud").innerHTML;
+		var position = new google.maps.LatLng( latitud, longitud);
+		var marker = new google.maps.Marker({position: position, title: nombre});
+		marker.setMap(map);
+	} //endfunction    
+
+</script>

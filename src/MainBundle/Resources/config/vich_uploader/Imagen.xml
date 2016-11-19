@@ -1,0 +1,3 @@
+<vich_uploader class="MainBundle\Entity\Imagen">
+  <field mapping="imagen_puntodeinteres" name="imagen" filename_property="nombre" />
+</vich_uploader>

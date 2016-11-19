@@ -1,0 +1,44 @@
+<div id="map">Map</div>
+
+<script>
+    var mapmarkers = new Array;
+    var map;  
+
+	function Map() {
+	  var mapCanvas = document.getElementById("map");
+	  var mapOptions = {
+	    center: new google.maps.LatLng(-37.25, -60.2), zoom: 7, mapTypeId: google.maps.MapTypeId.ROADMAP
+	  };
+	  map = new google.maps.Map(mapCanvas, mapOptions);
+      setMarkers();
+    }
+
+
+	function setMarkers() {
+	      //recorro nodos con id latitud
+		  var nodos_lat = document.getElementsByClassName("mainbundle_puntodeinteres_latitud");
+		  for (i = 0; i < nodos_lat.length; i++) {
+	        var latitud = nodos_lat[i].innerHTML;
+	        var nlongitud = nodos_lat[i].nextSibling.nextSibling;
+	        var longitud = nlongitud.innerHTML;
+	        var id = nlongitud.nextSibling.nextSibling.innerHTML;
+
+			var position = new google.maps.LatLng( latitud, longitud);
+			var marker = new google.maps.Marker({position: position});
+			marker.setMap(map);
+			mapmarkers[id] = marker;
+	      }	//endfor
+	} //endfunction
+
+
+	function bounce( id ) {
+	   var marker = mapmarkers[id];
+	   marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+
+
+    function nobounce( id ) {
+	   var marker = mapmarkers[id];
+	   marker.setAnimation(google.maps.Animation.NONE);
+    }  
+</script>

@@ -1,0 +1,24 @@
+enlace_index:
+    path:     /
+    defaults: { _controller: "MainBundle:Enlace:index" }
+    methods:  GET
+
+enlace_show:
+    path:     /{id}/show
+    defaults: { _controller: "MainBundle:Enlace:show" }
+    methods:  GET
+
+enlace_new:
+    path:     /new
+    defaults: { _controller: "MainBundle:Enlace:new" }
+    methods:  [GET, POST]
+
+enlace_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MainBundle:Enlace:edit" }
+    methods:  [GET, POST]
+
+enlace_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MainBundle:Enlace:delete" }
+    methods:  DELETE

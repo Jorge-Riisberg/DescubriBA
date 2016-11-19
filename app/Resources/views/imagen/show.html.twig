@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imagen</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ imagen.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ imagen.id }}</td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>    
+                    <div>
+                        <img id="imagen_puntodeinteres" class="img-responsive" src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}"> 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('imagen_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('imagen_edit', { 'id': imagen.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
+
+{% block body2 %}
+
+{% endblock %}

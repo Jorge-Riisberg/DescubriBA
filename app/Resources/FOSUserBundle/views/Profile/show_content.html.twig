@@ -1,0 +1,7 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+    <p>Nombre de Usuario: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <a href="{{ path("fos_user_change_password") }}" class="btn btn-warning">Cambiar Contraseña</a>
+</div>

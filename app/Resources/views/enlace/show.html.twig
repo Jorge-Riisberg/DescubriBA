@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Enlace</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ enlace.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ enlace.id }}</td>
+            </tr>
+            <tr>
+                <th>Enlace</th>
+                <td>{{ enlace.enlace }}</td>
+            </tr>            
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('enlace_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('enlace_edit', { 'id': enlace.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

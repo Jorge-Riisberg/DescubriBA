@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MainBundle\Entity\Video" table="video">
+    <indexes>
+      <index name="fk_Video_PuntoDeInteres1_idx" columns="PuntoDeInteres"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="idVideo_UNIQUE" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="Nombre" length="100" nullable="false"/>
+    <field name="enlace" type="string" column="Enlace" length="200" nullable="false"/>
+    <many-to-one field="puntodeinteres" target-entity="Puntodeinteres">
+      <join-columns>
+        <join-column name="PuntoDeInteres" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

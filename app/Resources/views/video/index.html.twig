@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Videos list</h1>
+
+    <table id="tabla_buscar">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Id</th>
+                <th>Enlace</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for video in videos %}
+            <tr>
+                <td><a href="{{ path('video_show', { 'id': video.id }) }}">{{ video.nombre }}</a></td>
+                <td>{{ video.id }}</td>
+                <td>{{ video.enlace }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('video_show', { 'id': video.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('video_edit', { 'id': video.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('video_new') }}">Create a new video</a>
+        </li>
+    </ul>
+{% endblock %}

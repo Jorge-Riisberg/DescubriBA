@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Punto de Interés <strong>{{ puntodeinteres.nombre }}</strong></h1><br>
+
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>DESCRIPCIÓN</th>
+                <th>LATITUD</th>
+                <th>LONGITUD</th>
+            </tr>
+            <tr>
+                <td>{{ puntodeinteres.id }}</td>
+                <td id="mainbundle_puntodeinteres_nombre">{{ puntodeinteres.nombre }}</td>
+                <td>{{ puntodeinteres.descripcion }}</td>
+                <td id="mainbundle_puntodeinteres_latitud">{{ puntodeinteres.latitud }}</td>
+                <td id="mainbundle_puntodeinteres_longitud">{{ puntodeinteres.longitud }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+	<div id = "myCarousel" class = "carousel slide">
+	   
+		<!-- Carousel indicators -->
+	 	<ol class = "carousel-indicators">
+	   		{% for i in 1..cant_imagenes_videos %}
+	   			<li data-target = "#myCarousel" data-slide-to = "{{ loop.index }}" {% if loop.first %} class = "active" {% endif %} ></li>
+	   		{% endfor %}
+		</ol>   
+	   
+	   <!-- Carousel items -->
+	   <div class = "carousel-inner">
+			{% for imagen in imagenes %}	
+			    <div class = "item active">
+			        <img id="imagen_puntodeinteres" src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}" alt = "First slide">
+			        <div class = "carousel-caption">This Caption 1</div>
+			    </div>
+			{% endfor %}
+
+			{% for video in videos %}	
+			    <div class = "item">
+			        <iframe id="video_puntodeinteres" src="{{video.enlace}}" frameborder="0" allowfullscreen></iframe>
+			        <div class = "carousel-caption">This Caption 1</div>
+			    </div>
+			{% endfor %} 
+	   </div>
+	   
+	   <!-- Carousel nav --> 
+	   <a class = "carousel-control left" href = "#myCarousel" data-slide = "prev">&lsaquo;</a>
+	   <a class = "carousel-control right" href = "#myCarousel" data-slide = "next">&rsaquo;</a>
+	</div>
+
+    <a href="{{ path('puntodeinteres_index') }}" class="btn btn-primary" role="button">Volver</a>
+    {% if app.user %}
+        <a href="{{ path('puntodeinteres_edit', { 'id': puntodeinteres.id }) }}" class="btn btn-warning" role="button">Modificar</a>
+        {{ form_start(delete_form) }}
+            <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button">
+        {{ form_end(delete_form) }}
+    {% endif %}
+
+
+	<h3>Enlaces</h3>
+	<ul>
+	    {% for enlace in enlaces %}
+	        <li><a href="{{enlace.enlace}}" target="{{ enlace.nombre }}">{{ enlace.nombre }}</a></li>
+	    {% endfor %}
+	</ul>    
+
+{% endblock %}
+
+{% block body2 %}
+    {{ include('mapas/map_show.html.twig') }}
+{% endblock %}

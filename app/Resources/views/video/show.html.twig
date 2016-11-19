@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Video</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ video.nombre }}</td>
+            </tr>        
+            <tr>
+                <th>Id</th>
+                <td>{{ video.id }}</td>
+            </tr>
+            <tr>
+                <th>Enlace</th>
+                <td>{{ video.enlace }}</td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>    
+                    <div id="video_puntodeinteres">
+                        <iframe id="video_puntodeinteres" src="{{video.enlace}}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('video_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('video_edit', { 'id': video.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

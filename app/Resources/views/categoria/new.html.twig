@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Nueva <strong>Categoría</strong></h1><br>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <br>
+        <a href="{{ path('categoria_index') }}" class="btn btn-primary" role="button">Volver</a>
+        <input type="submit" value="Crear" class="btn btn-success" role="button"/>
+    {{ form_end(form) }}
+{% endblock %}

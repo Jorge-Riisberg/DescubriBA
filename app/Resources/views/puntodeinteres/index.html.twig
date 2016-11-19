@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Listado de <strong>Puntos de Interés</strong></h1><br>
+
+    <table id="tabla_buscar" class="table table-hover">
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>DESCRIPCIÓN</th>
+                <th>LATITUD</th>
+                <th>LONGITUD</th>
+                <th>ID</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for puntodeinteres in puntodeinteres %}
+            <tr onmouseover="bounce({{puntodeinteres.id}})" onmouseout="nobounce({{puntodeinteres.id}})">
+                <td><a href="{{ path('puntodeinteres_show', { 'id': puntodeinteres.id }) }}">{{ puntodeinteres.nombre }}</a></td>
+                <td>{{ puntodeinteres.descripcion }}</td>
+                <td class="mainbundle_puntodeinteres_latitud">{{ puntodeinteres.latitud }}</td>
+                <td>{{ puntodeinteres.longitud }}</td>
+                <td>{{ puntodeinteres.id }}</td>
+                <td>
+                    <a href="{{ path('puntodeinteres_show', { 'id': puntodeinteres.id }) }}" class="btn btn-info btn-xs" role="button">Visualizar</a>
+                    {% if app.user %}
+	                    <a href="{{ path('puntodeinteres_edit', { 'id': puntodeinteres.id }) }}" class="btn btn-warning btn-xs" role="button">Modificar</a>
+	                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    {% if app.user %}
+        <a href="{{ path('puntodeinteres_new') }}" class="btn btn-success btn-md" role="button">Nuevo Punto</a>
+	{% endif %}
+
+
+
+{% endblock %}
+
+{% block body2 %}
+	{{ include('mapas/map_index.html.twig') }}
+{% endblock %}

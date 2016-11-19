@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Listado de <strong>Categoría</strong></h1><br>
+    <div>
+        <table id="tabla_buscar" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.id }}</td>
+                    <td>{{ categoria.nombre }}</td>
+                    <td>
+                        <a href="{{ path('categoria_show', { 'id': categoria.id }) }}" class="btn btn-info btn-xs" role="button">Visualizar</a>
+                        <a href="{{ path('categoria_edit', { 'id': categoria.id }) }}" class="btn btn-warning btn-xs" role="button">Modificar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ path('categoria_new') }}" class="btn btn-success btn-md" role="button">Nueva categoría</a>
+{% endblock %}

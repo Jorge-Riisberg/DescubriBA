@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    {{ include('head.html.twig') }}
+	<body>
+		{{ include('header.html.twig') }}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div id="left_container" class="col-md-6">
+						  {% block body %}{% endblock %}
+						</div>
+						<div id="right_container" class="col-md-6">
+						  {% block body2 %} {% endblock %}		
+						</div>
+					</div>
+					<div class="row">
+						<div id="left_container2" class="col-md-6">
+						  {% block body3 %}{% endblock %}
+						</div>
+						<div id="right_container2" class="col-md-6">
+						  {% block body4 %}{% endblock %}		
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>  
+	    {{ include('footer.html.twig') }}    
+	</body>
+</html>
+
+

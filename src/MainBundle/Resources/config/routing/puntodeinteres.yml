@@ -1,0 +1,24 @@
+puntodeinteres_index:
+    path:     /
+    defaults: { _controller: "MainBundle:Puntodeinteres:index" }
+    methods:  GET
+
+puntodeinteres_show:
+    path:     /{id}/show
+    defaults: { _controller: "MainBundle:Puntodeinteres:show" }
+    methods:  GET
+
+puntodeinteres_new:
+    path:     puntodeinteres/new
+    defaults: { _controller: "MainBundle:Puntodeinteres:new" }
+    methods:  [GET, POST]
+
+puntodeinteres_edit:
+    path:     puntodeinteres/{id}/edit
+    defaults: { _controller: "MainBundle:Puntodeinteres:edit" }
+    methods:  [GET, POST]
+
+puntodeinteres_delete:
+    path:     puntodeinteres/{id}/delete
+    defaults: { _controller: "MainBundle:Puntodeinteres:delete" }
+    methods:  DELETE
