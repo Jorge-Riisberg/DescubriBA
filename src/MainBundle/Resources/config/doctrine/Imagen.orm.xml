@@ -12,9 +12,9 @@
     </id>
     <field name="nombre" type="string" column="Nombre" length="100" nullable="false"/>
     <field name="fechaHora" type="datetime" column="fechahora" nullable="true"/>
-    <many-to-one field="puntodeinteres" target-entity="Puntodeinteres">
+    <many-to-one field="puntodeinteres" target-entity="Puntodeinteres" inversed-by="imagenes">	
       <join-columns>
-        <join-column name="PuntoDeInteres" referenced-column-name="id"/>
+        <join-column name="PuntoDeInteres" referenced-column-name="id" on-delete="CASCADE"/>
       </join-columns>
     </many-to-one>
   </entity>

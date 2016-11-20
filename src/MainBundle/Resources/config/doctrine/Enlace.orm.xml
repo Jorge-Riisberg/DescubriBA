@@ -14,7 +14,7 @@
     <field name="enlace" type="string" column="Enlace" length="200" nullable="false"/>
     <many-to-one field="puntodeinteres" target-entity="Puntodeinteres">
       <join-columns>
-        <join-column name="PuntoDeInteres" referenced-column-name="id"/>
+        <join-column name="PuntoDeInteres" referenced-column-name="id" on-delete="CASCADE"/>
       </join-columns>
     </many-to-one>
   </entity>

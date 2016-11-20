@@ -7,22 +7,24 @@
     <table id="tabla_buscar" class="table table-hover">
         <thead>
             <tr>
+                <th {% if not app.user %} class="hidden" {% endif %}>ID</th>
                 <th>NOMBRE</th>
                 <th>DESCRIPCIÓN</th>
                 <th>LATITUD</th>
                 <th>LONGITUD</th>
-                <th>ID</th>
+                <th class="hidden">ID</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
         {% for puntodeinteres in puntodeinteres %}
             <tr onmouseover="bounce({{puntodeinteres.id}})" onmouseout="nobounce({{puntodeinteres.id}})">
+            	<td {% if not app.user %} class="hidden" {% endif %}>{{ puntodeinteres.id }}</td>
                 <td><a href="{{ path('puntodeinteres_show', { 'id': puntodeinteres.id }) }}">{{ puntodeinteres.nombre }}</a></td>
                 <td>{{ puntodeinteres.descripcion }}</td>
                 <td class="mainbundle_puntodeinteres_latitud">{{ puntodeinteres.latitud }}</td>
                 <td>{{ puntodeinteres.longitud }}</td>
-                <td>{{ puntodeinteres.id }}</td>
+                <td class="hidden">{{ puntodeinteres.id }}</td>
                 <td>
                     <a href="{{ path('puntodeinteres_show', { 'id': puntodeinteres.id }) }}" class="btn btn-info btn-xs" role="button">Visualizar</a>
                     {% if app.user %}

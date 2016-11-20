@@ -6,14 +6,14 @@
     <table class="table table-hover">
         <tbody>
             <tr>
-                <th>ID</th>
+                <th {% if not app.user %} class="hidden" {% endif %}>ID</th>
                 <th>NOMBRE</th>
                 <th>DESCRIPCIÓN</th>
                 <th>LATITUD</th>
                 <th>LONGITUD</th>
             </tr>
             <tr>
-                <td>{{ puntodeinteres.id }}</td>
+                <td {% if not app.user %} class="hidden" {% endif %}>{{ puntodeinteres.id }}</td>
                 <td id="mainbundle_puntodeinteres_nombre">{{ puntodeinteres.nombre }}</td>
                 <td>{{ puntodeinteres.descripcion }}</td>
                 <td id="mainbundle_puntodeinteres_latitud">{{ puntodeinteres.latitud }}</td>
@@ -22,6 +22,7 @@
         </tbody>
     </table>
 
+    {% if cant_imagenes_videos > 0 %}
 	<div id = "myCarousel" class = "carousel slide">
 	   
 		<!-- Carousel indicators -->
@@ -32,18 +33,17 @@
 		</ol>   
 	   
 	   <!-- Carousel items -->
+	   {% set first_item = true %}
 	   <div class = "carousel-inner">
 			{% for imagen in imagenes %}	
-			    <div class = "item active">
+			    <div {% if first_item %} class="item active" {% set first_item = false %} {% else %} class="item" {% endif %} >
 			        <img id="imagen_puntodeinteres" src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}" alt = "First slide">
-			        <div class = "carousel-caption">This Caption 1</div>
 			    </div>
 			{% endfor %}
 
 			{% for video in videos %}	
-			    <div class = "item">
+			    <div {% if first_item %} class="item active" {% set first_item = false %} {% else %} class="item" {% endif %} >
 			        <iframe id="video_puntodeinteres" src="{{video.enlace}}" frameborder="0" allowfullscreen></iframe>
-			        <div class = "carousel-caption">This Caption 1</div>
 			    </div>
 			{% endfor %} 
 	   </div>
@@ -52,6 +52,7 @@
 	   <a class = "carousel-control left" href = "#myCarousel" data-slide = "prev">&lsaquo;</a>
 	   <a class = "carousel-control right" href = "#myCarousel" data-slide = "next">&rsaquo;</a>
 	</div>
+	{% endif %}
 
     <a href="{{ path('puntodeinteres_index') }}" class="btn btn-primary" role="button">Volver</a>
     {% if app.user %}

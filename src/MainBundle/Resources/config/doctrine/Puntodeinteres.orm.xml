@@ -19,15 +19,24 @@
         <join-column name="Localidad" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-	<many-to-many field="categorias" target-entity="Categoria">
-	    <join-table name="puntosdeinteres_categorias">
-	        <join-columns>
-	            <join-column name="puntoDeInteres_id" referenced-column-name="id" />
-	        </join-columns>
-	        <inverse-join-columns>
-	            <join-column name="categoria_id" referenced-column-name="id" />
-	        </inverse-join-columns>
-	    </join-table>
-	</many-to-many>          
+  	<many-to-many field="categorias" target-entity="Categoria">
+  	    <join-table name="puntosdeinteres_categorias">
+  	        <join-columns>
+  	            <join-column name="puntoDeInteres_id" referenced-column-name="id" />
+  	        </join-columns>
+  	        <inverse-join-columns>
+  	            <join-column name="categoria_id" referenced-column-name="id" />
+  	        </inverse-join-columns>
+  	    </join-table>
+  	</many-to-many>
+    <one-to-many field="imagenes" target-entity="Imagen" mapped-by="puntodeinteres" >
+      <cascade><cascade-remove /></cascade>
+    </one-to-many>
+    <one-to-many field="videos" target-entity="Video" mapped-by="puntodeinteres" >
+      <cascade><cascade-remove /></cascade>
+    </one-to-many>
+    <one-to-many field="enlaces" target-entity="Enlace" mapped-by="puntodeinteres" >
+      <cascade><cascade-remove /></cascade>
+    </one-to-many>        
   </entity>
 </doctrine-mapping>

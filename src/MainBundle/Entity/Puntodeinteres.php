@@ -45,11 +45,27 @@ class Puntodeinteres
     private $categorias;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imagenes;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $videos;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $enlaces;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -178,26 +194,26 @@ class Puntodeinteres
     }
 
     /**
-     * Add categorias
+     * Add categoria
      *
-     * @param \MainBundle\Entity\Categoria $categorias
+     * @param \MainBundle\Entity\Categoria $categoria
      * @return Puntodeinteres
      */
-    public function addCategoria(\MainBundle\Entity\Categoria $categorias)
+    public function addCategoria(\MainBundle\Entity\Categoria $categoria)
     {
-        $this->categorias[] = $categorias;
+        $this->categorias[] = $categoria;
 
         return $this;
     }
 
     /**
-     * Remove categorias
+     * Remove categoria
      *
-     * @param \MainBundle\Entity\Categoria $categorias
+     * @param \MainBundle\Entity\Categoria $categoria
      */
-    public function removeCategoria(\MainBundle\Entity\Categoria $categorias)
+    public function removeCategoria(\MainBundle\Entity\Categoria $categoria)
     {
-        $this->categorias->removeElement($categorias);
+        $this->categorias->removeElement($categoria);
     }
 
     /**
@@ -210,7 +226,106 @@ class Puntodeinteres
         return $this->categorias;
     }
 
+    /**
+     * Add imagen
+     *
+     * @param \MainBundle\Entity\Imagen $imagen
+     * @return Puntodeinteres
+     */
+    public function addImagen(\MainBundle\Entity\Imagen $imagen)
+    {
+        $this->imagenes[] = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Remove imagen
+     *
+     * @param \MainBundle\Entity\Imagen $imagen
+     */
+    public function removeImagen(\MainBundle\Entity\Imagen $imagen)
+    {
+        $this->imagenes->removeElement($imagen);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
+    }
+
+    /**
+     * Add video
+     *
+     * @param \MainBundle\Entity\Video $video
+     * @return Puntodeinteres
+     */
+    public function addVideo(\MainBundle\Entity\Video $video)
+    {
+        $this->videos[] = $video;
+
+        return $this;
+    }
+
+    /**
+     * Remove video
+     *
+     * @param \MainBundle\Entity\Video $video
+     */
+    public function removeVideo(\MainBundle\Entity\Video $video)
+    {
+        $this->videos->removeElement($video);
+    }
+
+    /**
+     * Get videos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getVideos()
+    {
+        return $this->videos;
+    }    
+
+    /**
+     * Add enlace
+     *
+     * @param \MainBundle\Entity\Enlace $enlace
+     * @return Puntodeinteres
+     */
+    public function addEnlace(\MainBundle\Entity\Enlace $enlace)
+    {
+        $this->enlaces[] = $enlace;
+
+        return $this;
+    }
+
+    /**
+     * Remove enlace
+     *
+     * @param \MainBundle\Entity\Enlace $enlace
+     */
+    public function removeEnlace(\MainBundle\Entity\Enlace $enlace)
+    {
+        $this->enlaces->removeElement($enlace);
+    }
+
+    /**
+     * Get enlaces
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEnlaces()
+    {
+        return $this->enlaces;
+    }
+
     public function __toString() {
-    	return $this->nombre;
-	}    
+        return $this->nombre;
+    }    
 }
