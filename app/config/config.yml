@@ -7,7 +7,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: es
 
 framework:
     #esi:             ~
@@ -81,15 +81,6 @@ fos_user:
     from_email:
         address:        descubriba@gmail.com
         sender_name:    DescubriBA
-
-    service:
-        mailer: fos_user.mailer.twig_swift
-    resetting:
-        email:
-            template:   email/password_resetting.email.twig
-    registration:
-        confirmation:
-            template:   FOSUserBundle:Registration:email.txt.twig
 
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
