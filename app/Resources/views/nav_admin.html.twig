@@ -6,10 +6,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+
       <a class="navbar-brand" href="{{path('puntodeinteres_index')}}"><span class="glyphicon glyphicon-home"></span> DescubríBA</a>
+    
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
+
       <ul class="nav navbar-nav">
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-map-marker"></span> Puntos de Interés<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -17,6 +21,7 @@
             <li><a href="{{path('puntodeinteres_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Puntos</a></li>
           </ul>
         </li>
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-bookmark"></span> Categoria<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -24,6 +29,7 @@
             <li><a href="{{path('categoria_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Categorias</a></li>
           </ul>
         </li>
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-download-alt"></span> Localidades<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -31,7 +37,17 @@
             <li><a href="{{path('localidad_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Localidades</a></li>
           </ul>
         </li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-picture"></span> Imagenes<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{path('imagen_new')}}"><span class="glyphicon glyphicon-plus"></span> Nueva Imagen</a></li>
+            <li><a href="{{path('imagen_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Imagenes</a></li>
+          </ul>
+        </li>
+
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         {% if app.user %}
            {# user is logged in #}
@@ -41,6 +57,7 @@
            <li><a href="{{path('fos_user_security_login')}}"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
         {% endif %}
       </ul>
+
     </div>
   </div>
 </nav>

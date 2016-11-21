@@ -1,42 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Imagen</h1>
+    <h1>Imagen <strong>{{ imagen.nombre }}</strong></h1><br>
+    <h4><strong>ID: </strong>{{ imagen.id }}</h4>
+    <h4><strong>Nombre: </strong>{{ imagen.nombre }}</h4><br>
+    <img src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}" id="imagen_puntodeinteres" class="img-responsive" class="img-thumbnail" alt="Cinque Terre" width="600" height="400" style="width:100%"><br>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ imagen.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ imagen.id }}</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td>    
-                    <div>
-                        <img id="imagen_puntodeinteres" class="img-responsive" src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}"> 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('imagen_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('imagen_edit', { 'id': imagen.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('imagen_index') }}" class="btn btn-primary" role="button">Volver</a>
+    <a href="{{ path('imagen_edit', { 'id': imagen.id }) }}" class="btn btn-warning" role="button">Modificar</a>
+    {{ form_start(delete_form) }}
+        <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button">
+    {{ form_end(delete_form) }}
 {% endblock %}
 
 {% block body2 %}
