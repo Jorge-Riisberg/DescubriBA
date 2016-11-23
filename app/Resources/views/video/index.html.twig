@@ -1,41 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Videos list</h1>
+    <h1>Listado de <strong>Videos</strong></h1><br>
 
     <table id="tabla_buscar">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Id</th>
-                <th>Enlace</th>
-                <th>Actions</th>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>ENLACE</th>
+                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
         {% for video in videos %}
             <tr>
-                <td><a href="{{ path('video_show', { 'id': video.id }) }}">{{ video.nombre }}</a></td>
                 <td>{{ video.id }}</td>
+                <td>{{ video.nombre }}</td>
                 <td>{{ video.enlace }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('video_show', { 'id': video.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('video_edit', { 'id': video.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('video_show', { 'id': video.id }) }}"  class="btn btn-info btn-xs" role="button">Visualizar</a>
+                    <a href="{{ path('video_edit', { 'id': video.id }) }}" class="btn btn-warning btn-xs" role="button">Modificar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('video_new') }}">Create a new video</a>
-        </li>
-    </ul>
+    <a href="{{ path('video_new') }}" class="btn btn-success btn-md" role="button">Nuevo video</a>
 {% endblock %}
