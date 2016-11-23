@@ -14,6 +14,12 @@
     background: black;
 }
 
+#imagen_puntodeinteres {
+    width: 600px;
+    height: 400px;
+    background: black;
+}
+
 #myCarousel {
     width: 600px;
     height: 400px;

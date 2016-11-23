@@ -9,6 +9,7 @@
                 <th {% if not app.user %} class="hidden" {% endif %}>ID</th>
                 <th>NOMBRE</th>
                 <th>DESCRIPCIÓN</th>
+                <th>LOCALIDAD</th>
                 <th>LATITUD</th>
                 <th>LONGITUD</th>
             </tr>
@@ -16,6 +17,7 @@
                 <td {% if not app.user %} class="hidden" {% endif %}>{{ puntodeinteres.id }}</td>
                 <td id="mainbundle_puntodeinteres_nombre">{{ puntodeinteres.nombre }}</td>
                 <td>{{ puntodeinteres.descripcion }}</td>
+                <td>{{ puntodeinteres.localidad }}</td>
                 <td id="mainbundle_puntodeinteres_latitud">{{ puntodeinteres.latitud }}</td>
                 <td id="mainbundle_puntodeinteres_longitud">{{ puntodeinteres.longitud }}</td>
             </tr>

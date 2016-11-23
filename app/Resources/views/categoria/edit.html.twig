@@ -10,7 +10,7 @@
         <input type="submit" value="Modificar" class="btn btn-success" role="button"/>
     {{ form_end(edit_form) }}
     {{ form_start(delete_form) }}
-        <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button">
+        <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button" onclick="return confirm('are u sure?')">
     {{ form_end(delete_form) }}
 
 {% endblock %}

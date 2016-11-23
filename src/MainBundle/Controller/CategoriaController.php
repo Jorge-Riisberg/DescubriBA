@@ -117,7 +117,7 @@ class CategoriaController extends Controller
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('categoria_delete', array('id' => $categoria->getId())))
-            ->setMethod('DELETE')
+            ->setMethod('DELETE')           
             ->getForm()
         ;
     }

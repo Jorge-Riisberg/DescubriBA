@@ -16,16 +16,16 @@
     <field name="longitud" type="decimal" column="Longitud" precision="9" scale="6" nullable="false"/>
     <many-to-one field="localidad" target-entity="Localidad">
       <join-columns>
-        <join-column name="Localidad" referenced-column-name="id"/>
+        <join-column name="Localidad" referenced-column-name="id" on-delete="CASCADE"/>
       </join-columns>
     </many-to-one>
   	<many-to-many field="categorias" target-entity="Categoria">
   	    <join-table name="puntosdeinteres_categorias">
   	        <join-columns>
-  	            <join-column name="puntoDeInteres_id" referenced-column-name="id" />
+  	            <join-column name="puntoDeInteres_id" referenced-column-name="id" on-delete="CASCADE" />
   	        </join-columns>
   	        <inverse-join-columns>
-  	            <join-column name="categoria_id" referenced-column-name="id" />
+  	            <join-column name="categoria_id" referenced-column-name="id" on-delete="CASCADE" />
   	        </inverse-join-columns>
   	    </join-table>
   	</many-to-many>
