@@ -1,22 +1,22 @@
 main_enlace:
     resource: "@MainBundle/Resources/config/routing/enlace.yml"
-    prefix:   /enlace
+    prefix:   /enlaces
 
 main_imagen:
     resource: "@MainBundle/Resources/config/routing/imagen.yml"
-    prefix:   /imagen
+    prefix:   /imagenes
 
 main_video:
     resource: "@MainBundle/Resources/config/routing/video.yml"
-    prefix:   /video    
+    prefix:   /videos    
 
 main_categoria:
     resource: "@MainBundle/Resources/config/routing/categoria.yml"
-    prefix:   /categoria
+    prefix:   /categorias
 
 main_localidad:
     resource: "@MainBundle/Resources/config/routing/localidad.yml"
-    prefix:   /localidad
+    prefix:   /localidades
 
 main_homepage:
     resource: "@MainBundle/Resources/config/routing/puntodeinteres.yml"
