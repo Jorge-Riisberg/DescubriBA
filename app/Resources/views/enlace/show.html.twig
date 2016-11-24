@@ -1,36 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Enlace</h1>
+    <h1>Enlace <strong>{{ enlace.nombre }}</strong></h1><br>
+    <h4><strong>ID: </strong>{{ enlace.id }}</h4>
+    <h4><strong>Nombre: </strong>{{ enlace.nombre }}</h4><br>
+    <h4><strong>Enlace: </strong>{{ enlace.enlace }}</h4><br>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ enlace.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ enlace.id }}</td>
-            </tr>
-            <tr>
-                <th>Enlace</th>
-                <td>{{ enlace.enlace }}</td>
-            </tr>            
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('enlace_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('enlace_edit', { 'id': enlace.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('enlace_index') }}" class="btn btn-primary" role="button">Volver</a>
+    <a href="{{ path('enlace_edit', { 'id': enlace.id }) }}" class="btn btn-warning" role="button">Modificar</a>
+    {{ form_start(delete_form) }}
+        <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button">
+    {{ form_end(delete_form) }}
 {% endblock %}

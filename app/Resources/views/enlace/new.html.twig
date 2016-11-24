@@ -1,16 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Enlace creation</h1>
-
+    <h1>Nuevo <strong>Enlace</strong></h1><br>
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <br>
+        <a href="{{ path('enlace_index') }}" class="btn btn-primary" role="button">Volver</a>
+        <input type="submit" value="Crear" class="btn btn-success" role="button"/>
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('enlace_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

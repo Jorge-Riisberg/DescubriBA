@@ -1,21 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Enlace edit</h1>
+    <h1>Modificar <strong>Enlace</strong></h1><br>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <a href="{{ path('enlace_index') }}" class="btn btn-primary" role="button">Volver</a>
+        <input type="submit" value="Modificar" class="btn btn-success" role="button"/>
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('enlace_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {{ form_start(delete_form) }}
+        <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button">
+    {{ form_end(delete_form) }}
+
 {% endblock %}

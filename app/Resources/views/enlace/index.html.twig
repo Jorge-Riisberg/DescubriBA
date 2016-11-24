@@ -1,41 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Enlaces list</h1>
+    <h1>Listado de <strong>Enlaces</strong></h1><br>
 
     <table id="tabla_buscar">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Id</th>
-                <th>Enlace</th>
-                <th>Actions</th>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>ENLACE</th>
+                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
         {% for enlace in enlaces %}
             <tr>
-                <td><a href="{{ path('enlace_show', { 'id': enlace.id }) }}">{{ enlace.nombre }}</a></td>
                 <td>{{ enlace.id }}</td>
+                <td>{{ enlace.nombre }}</td>
                 <td>{{ enlace.enlace }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('enlace_show', { 'id': enlace.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('enlace_edit', { 'id': enlace.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('enlace_show', { 'id': enlace.id }) }}" class="btn btn-info btn-xs" role="button">Visualizar</a>
+                    <a href="{{ path('enlace_edit', { 'id': enlace.id }) }}" class="btn btn-warning btn-xs" role="button">Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('enlace_new') }}">Create a new enlace</a>
-        </li>
-    </ul>
+    <a href="{{ path('enlace_new') }}" class="btn btn-success btn-md" role="button">Nuevo enlace</a>
 {% endblock %}
