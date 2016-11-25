@@ -22,7 +22,7 @@
             <tr onmouseover="bounce({{puntodeinteres.id}})" onmouseout="nobounce({{puntodeinteres.id}})">
             	<td {% if not app.user %} class="hidden" {% endif %}>{{ puntodeinteres.id }}</td>
                 <td><a href="{{ path('puntodeinteres_show', { 'id': puntodeinteres.id }) }}">{{ puntodeinteres.nombre }}</a></td>
-                <td>{{ puntodeinteres.descripcion }}</td>
+                <td>{{ puntodeinteres.descripcion[0:20]}} ...</td>
                 <td>{{ puntodeinteres.localidad }}</td>
                 <td class="mainbundle_puntodeinteres_latitud">{{ puntodeinteres.latitud }}</td>
                 <td>{{ puntodeinteres.longitud }}</td>
@@ -37,9 +37,9 @@
         {% endfor %}
         </tbody>
     </table>
-    
+
     {% if app.user %}
-        <a href="{{ path('puntodeinteres_new') }}" class="btn btn-success btn-md" role="button">Nuevo Punto</a>
+        <br><a href="{{ path('puntodeinteres_new') }}" class="btn btn-success btn-md" role="button">Nuevo Punto</a>
 	{% endif %}
 
 

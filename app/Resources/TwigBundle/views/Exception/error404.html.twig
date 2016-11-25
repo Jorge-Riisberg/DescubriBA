@@ -1,34 +1,27 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Page not found</h1>
-
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {# ... #}
-    {% endif %}
-
-    <p>
-        The requested page couldn't be located. Checkout for any URL
-        misspelling or <a href="{{path('puntodeinteres_index')}}">return to the homepage</a>.
-    </p>
-
-
-<div class="container">
-    <div class="row">
-    <div class="error-template">
-	    <h1>Oops!</h1>
-	    <h2>404 Not Found</h2>
-	    <div class="error-details">
-		Sorry, an error has occured, Requested page not found!<br>
-		<?php echo CHtml::encode($message); ?>
-	    </div>
-	    <div class="error-actions">
-		<a href="<?php echo Yii::app()->request->baseUrl; ?>" class="btn btn-primary">
-		    <i class="icon-home icon-white"></i> Take Me Home </a>
-		<a href="mailto:me@null-byte.info" class="btn btn-default">
-		    <i class="icon-envelope"></i> Contact Support </a>
-	    </div>
-	</div>
-    </div>
-</div>    
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    {{ include('head.html.twig') }}
+	<body>
+		<header>
+			<center>
+			<img id="logo" class="img-responsive" src="{{asset('img/logo.png')}}" style="">
+			</center>
+		</header>
+		<div class="container">
+			<div class="jumbotron">
+			  <h1>Oops! - 404 Not Found</h1>
+			  <p>La página solcitada puede no estar disponible, haber cambiado de URL o no existir. <br>
+			  Disculpe las molestias!<br> <br>
+			  Con frecuencia es debido a algún error al escribir la dirección de la página (URL). Compruebe de nuevo para ver si es correcta.</p>
+			  <p><a class="btn btn-primary btn-lg" onclick="goBack()">Volver</a></p>
+			  <a href="{{path('puntodeinteres_index')}}">Volver a la Página principal</a>.
+			<script>
+				function goBack() {
+					window.history.back();
+				}
+			</script> 
+			</div>
+		</div>
+	    {{ include('footer.html.twig') }}    
+	</body>
+</html>
