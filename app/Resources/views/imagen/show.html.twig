@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Imagen <strong>{{ imagen.nombre }}</strong></h1><br>
+    <h1>Imágen <strong>{{ imagen.nombre }}</strong></h1><br>
     <h4><strong>ID: </strong>{{ imagen.id }}</h4>
     <h4><strong>Nombre: </strong>{{ imagen.nombre }}</h4><br>
     <img src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}" id="imagen_puntodeinteres" class="img-responsive" class="img-thumbnail" alt="Cinque Terre" width="600" height="400" style="width:100%"><br>
@@ -12,8 +12,4 @@
     {{ form_start(delete_form) }}
         <br><input type="submit" value="Eliminar" class="btn btn-danger" role="button">
     {{ form_end(delete_form) }}
-{% endblock %}
-
-{% block body2 %}
-
 {% endblock %}

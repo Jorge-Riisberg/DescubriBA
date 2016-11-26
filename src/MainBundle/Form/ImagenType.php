@@ -14,7 +14,7 @@ class ImagenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('puntodeinteres');
-        $builder->add('imagen','file',array('label'=>'Imagen', 'required'=>true, 'attr'=>array('accept'=>'image/*')));
+        $builder->add('imagen','file',array('label'=>'Imágen', 'required'=>true, 'attr'=>array('accept'=>'image/*')));
     }
     
     /**
