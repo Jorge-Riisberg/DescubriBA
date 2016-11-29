@@ -3,11 +3,11 @@
 }
 
 #map {
-    padding-top: 2%;
-    width: 88%;
+    /*padding-top: 2%;*/
+    width: 100s%;
     height: 600px;
     background: white;
-    float: right;
+    margin: auto;
 }
 
 #video_puntodeinteres {
@@ -35,8 +35,8 @@ header #logo {
 }
 
 body {
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 body footer {
