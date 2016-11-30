@@ -5,6 +5,7 @@ namespace MainBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Doctrine\ORM\EntityRepository;
 
 class EnlaceType extends AbstractType
 {
@@ -13,7 +14,13 @@ class EnlaceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')->add('puntodeinteres')->add('enlace');
+        $builder->add('nombre')
+			->add('puntodeinteres','entity', array(	'label'=>'Punto de interes',
+                                                	'class'=>'MainBundle:Puntodeinteres',
+													'query_builder' => function(EntityRepository $er) { return $er->createQueryBuilder('p')->orderBy('p.nombre', 'ASC'); },
+													'placeholder' => '',
+                                                	'property'=>'nombre' ))      	
+        	->add('enlace');
     }
     
     /**
@@ -33,6 +40,5 @@ class EnlaceType extends AbstractType
     {
         return 'mainbundle_enlace';
     }
-
 
 }

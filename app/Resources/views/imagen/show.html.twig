@@ -4,7 +4,7 @@
     <h1>Imágen <strong>{{ imagen.nombre }}</strong></h1><br>
     <h4><strong>ID: </strong>{{ imagen.id }}</h4>
     <h4><strong>Nombre: </strong>{{ imagen.nombre }}</h4><br>
-    <img src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}" id="imagen_puntodeinteres" class="img-responsive" class="img-thumbnail" alt="Cinque Terre" width="600" height="400" style="width:100%"><br>
+    <img id="imagen_puntodeinteres" src="{{asset( 'img/puntosdeinteres/' ~ imagen.nombre )}}" class="img-responsive"><br>
 
 
     <a href="{{ path('imagen_index') }}" class="btn btn-primary" role="button">Volver</a>
